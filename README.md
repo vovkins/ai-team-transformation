@@ -28,6 +28,7 @@
 6. [Онбординг команды](#6-онбординг-команды)
 7. [Шаблон проекта](#7-шаблон-проекта)
 8. [Внедрение: поэтапный план](#8-внедрение-поэтапный-план)
+9. [Agent Skills для ролей](#9-agent-skills-для-ролей)
 
 ---
 
@@ -576,6 +577,155 @@ project-repo/
 - ❌ Не заменять human review на агентный (только дополнение)
 - ❌ Не начинать с полной автоматизации
 - ❌ Не игнорировать контекст — «правильный промпт» не работает без правильного контекста
+
+---
+
+## 9. Agent Skills для ролей
+
+### Открытый стандарт: Agent Skills
+
+[agentskills.io](https://agentskills.io) — единый открытый формат для навыков AI-агентов. Поддерживается Codex, Claude Code, Gemini CLI, Cursor и другими инструментами.
+
+**Формат:** директория с обязательным `SKILL.md` (YAML frontmatter + markdown инструкции):
+
+```
+skill-name/
+├── SKILL.md          # Обязательно: метаданные + инструкции
+├── scripts/          # Опционально: исполняемые скрипты
+├── references/       # Опционально: документация
+└── assets/           # Опционально: шаблоны, ресурсы
+```
+
+### Источники готовых skills
+
+| Источник | Описание | Ссылка |
+|---|---|---|
+| OpenAI Skills Catalog | 35+ проверенных skills от OpenAI | [github.com/openai/skills](https://github.com/openai/skills) |
+| Product Manager Skills | 47 skills для PM (JTBD, sprint planning, backlog) | [github.com/deanpeters/Product-Manager-Skills](https://github.com/deanpeters/Product-Manager-Skills) |
+| Skill Registry | Каталог с фильтрацией по категориям | [skillregistry.dev](https://skillregistry.dev) |
+| Agent Skills CC | 1000+ community skills | [agent-skills.cc](https://agent-skills.cc) |
+| MCP Market | Директория skills для разных агентов | [mcpmarket.com/tools/skills](https://mcpmarket.com/tools/skills) |
+
+### Маппинг skills на роли
+
+#### Продакт-оунер (PO)
+
+| Skill | Что делает | Источник |
+|---|---|---|
+| agile-product-owner | Sprint planning, backlog management, velocity tracking | skillregistry.dev |
+| brainstorm-stories | Брейншторм идей для user stories | deanpeters/PM-Skills |
+| write-user-story | Формулирование user stories в AI-friendly формате | deanpeters/PM-Skills |
+| competitive-analysis | Конкурентный анализ и исследование рынка | deanpeters/PM-Skills |
+| jobs-to-be-done | JTBD фреймворк для определения потребностей | deanpeters/PM-Skills |
+
+#### Архитектор
+
+| Skill | Что делает | Источник |
+|---|---|---|
+| define-architecture | Проектирование архитектуры проекта | **Создать свой** |
+| review-architecture | Проверка архитектурной целостности PR | **Создать свой** |
+| security-threat-model | Моделирование угроз безопасности | openai/skills (curated) |
+
+> ⚠️ Для архитектора мало готовых skills — основную часть нужно создать под конкретный проект.
+
+#### UI/UX Дизайнер
+
+| Skill | Что делает | Источник |
+|---|---|---|
+| figma-design-system | Создание и поддержка дизайн-системы в Figma | openai/skills (curated) |
+| figma-generate-design | Генерация дизайна по спецификации | openai/skills (curated) |
+| figma-implement-design | Конвертация дизайна в код | openai/skills (curated) |
+| figma-generate-library | Генерация компонентной библиотеки | openai/skills (curated) |
+| accessibility-auditor | Аудит доступности (WCAG, ARIA) | skillregistry.dev |
+
+#### Системный аналитик
+
+| Skill | Что делает | Источник |
+|---|---|---|
+| write-task-spec | Написание технических спецификаций в AI-friendly формате | **Создать свой** |
+| validate-against-architecture | Проверка спецификаций на соответствие архитектуре | **Создать свой** |
+| notion-spec-to-implementation | Связь спецификаций с реализацией | openai/skills (curated) |
+
+> ⚠️ Для аналитика мало готовых skills — нужно создавать под процесс команды.
+
+#### Разработчик
+
+| Skill | Что делает | Источник |
+|---|---|---|
+| frontend-skill | Фронтенд-разработка (шаблоны, best practices) | openai/skills (curated) |
+| doc | Генерация документации к коду | openai/skills (curated) |
+| gh-fix-ci | Исправление CI ошибок | openai/skills (curated) |
+| security-best-practices | Проверка кода на безопасность | openai/skills (curated) |
+| code-review | Автоматический code review | community skills |
+
+#### QA-инженер
+
+| Skill | Что делает | Источник |
+|---|---|---|
+| playwright | E2E тестирование через Playwright | openai/skills (curated) |
+| playwright-interactive | Интерактивное тестирование | openai/skills (curated) |
+| generate-tests | Генерация тест-кейсов по спецификации | **Создать свой** |
+| analyze-coverage | Анализ покрытия тестами | **Создать свой** |
+
+### Структура skills в репозитории проекта
+
+Skills хранятся в `.agents/skills/` — агент автоматически обнаруживает их при работе:
+
+```
+.agents/skills/
+├── po/
+│   ├── brainstorm-stories/
+│   │   └── SKILL.md
+│   ├── write-user-story/
+│   │   └── SKILL.md
+│   └── competitive-analysis/
+│       └── SKILL.md
+├── architect/
+│   ├── define-architecture/
+│   │   └── SKILL.md
+│   └── review-architecture/
+│       └── SKILL.md
+├── designer/
+│   ├── figma-design-system/
+│   │   └── SKILL.md
+│   └── generate-ui-spec/
+│       └── SKILL.md
+├── analyst/
+│   ├── write-task-spec/
+│   │   └── SKILL.md
+│   └── validate-against-architecture/
+│       └── SKILL.md
+├── developer/
+│   ├── implement-feature/
+│   │   └── SKILL.md
+│   └── code-review/
+│       └── SKILL.md
+└── qa/
+    ├── generate-tests/
+    │   └── SKILL.md
+    └── analyze-coverage/
+        └── SKILL.md
+```
+
+### Установка готовых skills
+
+```bash
+# Из официального каталога OpenAI (в Codex)
+$skill-installer agile-product-owner
+$skill-installer figma-design-system
+
+# Из Skill Registry
+npx codex-skills-registry@latest --skill=product/agile-product-owner --yes
+
+# Из GitHub репозитория
+$skill-installer install https://github.com/deanpeters/Product-Manager-Skills
+```
+
+### Принцип: готовые → адаптировать → создавать свои
+
+1. **Сначала подтянуть готовые** skills из каталогов (PO, дизайнер, разработчик — хорошо покрыты)
+2. **Адаптировать** под специфику проекта (добавить ссылки на свои шаблоны, контекст)
+3. **Создать свои** где готовых нет (архитектор, аналитик, часть QA)
 
 ---
 
