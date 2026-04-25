@@ -1,8 +1,0 @@
-/* Hide Slidev controls for clean presentation */
-.slidev-controls,
-.slidev-toolbar,
-.slidev-nav,
-.slidev-overview,
-.controls-wrapper {
-  display: none !important;
-}
