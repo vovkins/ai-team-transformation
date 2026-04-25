@@ -896,7 +896,7 @@ $skill-installer install https://github.com/deanpeters/Product-Manager-Skills
 
 ---
 
-### Шаг 1. Продуктовое исследование
+### Этап 1. Продуктовое исследование
 
 **Задача:** Изучить рынок, конкурентов, сформулировать гипотезы
 
@@ -919,7 +919,7 @@ $skill-installer install https://github.com/deanpeters/Product-Manager-Skills
 
 ---
 
-### Шаг 2. Формирование vision (PRD)
+### Этап 2. Формирование vision (PRD)
 
 **Задача:** Описать видение продукта, бизнес-требования, целевую аудиторию
 
@@ -943,7 +943,7 @@ $skill-installer install https://github.com/deanpeters/Product-Manager-Skills
 
 ---
 
-### Шаг 3. Декомпозиция в User Stories
+### Этап 3. Декомпозиция в User Stories
 
 **Задача:** Разбить PRD на конкретные user stories с acceptance criteria
 
@@ -966,7 +966,7 @@ $skill-installer install https://github.com/deanpeters/Product-Manager-Skills
 
 ---
 
-### Шаг 4. Приоритизация бэклога
+### Этап 4. Приоритизация бэклога
 
 **Задача:** Расставить приоритеты, найти зависимости
 
