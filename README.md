@@ -643,6 +643,14 @@ project-repo/
 │   ├── conventions.md
 │   └── architecture.md
 │
+├── .agents/skills/            # Agent Skills по ролям (см. раздел 9)
+│   ├── po/
+│   ├── architect/
+│   ├── designer/
+│   ├── analyst/
+│   ├── developer/
+│   └── qa/
+│
 ├── templates/                 # Шаблоны артефактов
 │   ├── product-research.md
 │   ├── prd.md
