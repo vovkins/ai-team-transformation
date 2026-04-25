@@ -261,17 +261,122 @@
 
 ```
 templates/
+├── product-research.md    # Отчёт о продуктовом исследовании
+├── prd.md                 # Product Requirements Document
 ├── user-story.md          # Шаблон user story с acceptance criteria
 ├── task-specification.md  # Техническая спецификация задачи
 ├── api-specification.md   # API контракт
 ├── ui-specification.md    # Описание экрана/компонента
 ├── design-token.md        # Design system token
+├── architecture-document.md # Документ архитектуры проекта
+├── module-boundaries.md   # Описание модульных границ
+├── architecture-review.md # Шаблон архитектурного review
 ├── test-plan.md           # План тестирования
 ├── test-case.md           # Тест-кейс
 ├── bug-report.md          # Баг репорт
 ├── pr-description.md      # Описание pull request
 ├── release-notes.md       # Release notes
 └── code-review.md         # Чеклист code review
+```
+
+### Пример шаблона Product Research Report:
+
+```markdown
+---
+status: draft
+author: {PO name}
+date: {YYYY-MM-DD}
+---
+
+# Product Research Report
+
+## Market Overview
+{Описание рынка, размер, динамика}
+
+## Competitors
+### {Competitor 1}
+- **Сильные стороны:** {list}
+- **Слабые стороны:** {list}
+- **Ключевые фичи:** {list}
+- **Целевая аудитория:** {описание}
+
+### {Competitor 2}
+- **Сильные стороны:** {list}
+- **Слабые стороны:** {list}
+- **Ключевые фичи:** {list}
+- **Целевая аудитория:** {описание}
+
+## Market Gaps
+- {Незаполненная ниша 1}
+- {Незаполненная ниша 2}
+
+## Hypotheses
+- [ ] H1: {гипотеза} — {как проверить}
+- [ ] H2: {гипотеза} — {как проверить}
+
+## Recommendations
+- {Рекомендация 1}
+- {Рекомендация 2}
+
+## Sources
+- {источник 1}
+- {источник 2}
+```
+
+### Пример шаблона PRD:
+
+```markdown
+---
+status: draft
+author: {PO name}
+date: {YYYY-MM-DD}
+version: "1.0"
+---
+
+# PRD: {Product Name}
+
+## Vision
+{1-2 предложения: что делаем и зачем}
+
+## Problem Statement
+{Какую проблему решаем для кого}
+
+## Target Audience
+- **Сегмент 1:** {описание, размер}
+- **Сегмент 2:** {описание, размер}
+
+## Goals & KPIs
+| Цель | KPI | Целевое значение |
+|---|---|---|
+| {цель} | {метрика} | {значение} |
+
+## User Stories (high-level)
+- US-E1: {Epic 1}
+- US-E2: {Epic 2}
+
+## Functional Requirements
+- FR1: {требование}
+- FR2: {требование}
+
+## Non-Functional Requirements
+- NFR1: {требование}
+
+## MVP Scope
+### In MVP
+- {фича 1}
+- {фича 2}
+
+### Post-MVP
+- {фича 3}
+- {фича 4}
+
+## Risks
+| Риск | Вероятность | Влияние | Митигация |
+|---|---|---|---|
+| {риск} | {high/medium/low} | {high/medium/low} | {действие} |
+
+## Related
+- Product Research Report: docs/product-research.md
 ```
 
 ### Пример шаблона User Story:
@@ -539,10 +644,15 @@ project-repo/
 │   └── architecture.md
 │
 ├── templates/                 # Шаблоны артефактов
+│   ├── product-research.md
+│   ├── prd.md
 │   ├── user-story.md
 │   ├── task-specification.md
 │   ├── api-specification.md
 │   ├── ui-specification.md
+│   ├── architecture-document.md
+│   ├── module-boundaries.md
+│   ├── architecture-review.md
 │   ├── test-plan.md
 │   ├── test-case.md
 │   ├── bug-report.md
