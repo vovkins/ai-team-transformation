@@ -18,7 +18,10 @@ fonts:
 ---
 
 <style>
-/* Force hide overview mode completely */
+/* Hide Slidev controls on mobile for clean presentation */
+.slidev-controls,
+.slidev-toolbar,
+.slidev-nav,
 .slidev-overview,
 [class*="overview"],
 .slides-overview {
@@ -27,6 +30,11 @@ fonts:
   pointer-events: none !important;
   position: absolute !important;
   z-index: -9999 !important;
+}
+/* Hide the bottom bar with slide counter and buttons */
+.slidev-layout .slidev-controls-wrapper,
+.slidev-layout .controls {
+  display: none !important;
 }
 </style>
 

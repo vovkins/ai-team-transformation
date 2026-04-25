@@ -1,0 +1,20 @@
+/* Hide all Slidev navigation controls for clean presentation */
+.slidev-controls,
+.slidev-toolbar,
+.slidev-nav,
+.slidev-overview,
+.slidev-context-menu,
+.slidev-glass-effect,
+.controls-wrapper,
+nav[class*="slidev"],
+[class*="slidev-controls"],
+[class*="NavControls"],
+[class*="ContextMenu"],
+.slidev-icon-btn,
+.slidev-goto-dialog,
+.slidev-info-dialog,
+.slidev-drawing-controls,
+#slideshow + div,
+#slideshow ~ div:not(#app) {
+  display: none !important;
+}
