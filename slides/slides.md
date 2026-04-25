@@ -9,7 +9,6 @@ transition: fade
 theme: default
 background: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80
 download: false
-css: unocss
 fonts:
   sans: Outfit
   serif: Playfair Display
@@ -17,11 +16,15 @@ fonts:
 ---
 
 <style>
-.slides-overview,
-.slidev-sidebar,
-.slidev-toc,
-.slidev-nav {
+/* Force hide overview mode completely */
+.slidev-overview,
+[class*="overview"],
+.slides-overview {
   display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  z-index: -9999 !important;
 }
 </style>
 
