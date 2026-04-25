@@ -36,12 +36,16 @@ jobs:
       # Inject global CSS to hide navigation controls
       - run: |
           cat > slides/dist/overrides.css << 'CSSEOF'
-          /* Hide all Slidev navigation controls */
+          /* Hide all Slidev navigation controls and overlays */
           nav, .slidev-controls, .slidev-toolbar, .slidev-nav,
           [class*="NavControls"], [class*="ContextMenu"],
           .slidev-context-menu, .slidev-goto-dialog, .slidev-info-dialog,
           .slidev-drawing-controls, .slidev-glass-effect,
-          .slidev-icon-btn, [class*="controls-wrapper"] {
+          .slidev-icon-btn, [class*="controls-wrapper"],
+          .QuickOverview, [class*="QuickOverview"],
+          .z-modal, .z-menu, .z-context-menu,
+          [class*="slidev-goto"], [class*="slidev-info"],
+          .Modal, [class*="Modal"] {
             display: none !important;
           }
           CSSEOF
