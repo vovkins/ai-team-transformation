@@ -5,10 +5,25 @@ info: |
 class: text-center
 drawings:
   persist: false
-transition: slide-left
+transition: fade
 theme: default
 background: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80
+download: false
+css: unocss
+fonts:
+  sans: Outfit
+  serif: Playfair Display
+  mono: JetBrains Mono
 ---
+
+<style>
+.slides-overview,
+.slidev-sidebar,
+.slidev-toc,
+.slidev-nav {
+  display: none !important;
+}
+</style>
 
 # AI-Augmented Team Transformation
 

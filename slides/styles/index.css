@@ -1,0 +1,6 @@
+/* Hide Slidev overview/sidebar in production build */
+.slides-overview,
+.slidev-layout .slidev-nav,
+.nav-bar {
+  display: none !important;
+}
