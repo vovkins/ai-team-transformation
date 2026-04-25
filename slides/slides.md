@@ -9,6 +9,8 @@ transition: fade
 theme: default
 background: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80
 download: false
+presenter: false
+contextMenu: false
 fonts:
   sans: Outfit
   serif: Playfair Display
